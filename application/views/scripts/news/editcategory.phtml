@@ -1,0 +1,24 @@
+<legend>Редактировать категорию</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'news', 'action' => 'editcategory', 'categoryId' => $this->newsCategory->id, 'link' => $this->escape($this->link))) ?>" method="post" enctype="multipart/form-data">
+    <div class="control-group">
+        <label class="control-label">Название</label>
+
+        <div class="controls">
+            <input type="text" name="data[title]" value="<?php echo $this->escape($this->newsCategory->title); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'index', 'link' => $this->escape($this->link))) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

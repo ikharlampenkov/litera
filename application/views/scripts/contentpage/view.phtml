@@ -1,0 +1,52 @@
+<div class="content_main">
+
+    <?php if ($this->contentPage->parentPage != null): ?>
+        <ul class="breadcrumb">
+            <?php if ($this->contentPage->parentPage->parentPage !== null): ?>
+                <?php echo $this->partial('contentpage/_elements/public_breadcrumb.phtml', array('parentItem' => $this->contentPage->parentPage->parentPage, 'link' => $this->link)); ?>
+            <?php endif; ?>
+            <?php if ($this->contentPage->parentPage->getLink()->link == $this->link): ?>
+                <li><a href="/<?php echo $this->escape($this->link); ?>/"><?php echo $this->escape($this->contentPage->parentPage->getTitle()); ?></a></li>
+            <?php else: ?>
+                <li><a href="/<?php echo $this->escape($this->link); ?>/subtitle/<?php echo $this->escape($this->contentPage->parentPage->pageTitle); ?>/"><?php echo $this->escape($this->contentPage->parentPage->getTitle()); ?></a></li>
+            <?php endif; ?>
+        </ul>
+    <?php endif; ?>
+
+    <div class="n_title">
+        <a href="#" title="<?php echo $this->escape($this->contentPage->title); ?>"><?php echo $this->escape($this->contentPage->title); ?></a>
+    </div>
+
+    <?php /*if ($this->linkInfo->link != 'dokmen' || $this->access == true):*/ ?>
+
+        <?php echo stripslashes(stripcslashes($this->contentPage->content)); ?>
+
+        <?php if ($this->contentPage->hasChild()): ?>
+            <ul>
+                <?php foreach ($this->contentPage->getChild() as $child): ?>
+                    <li><a href="/<?php echo $this->escape($this->link); ?>/subtitle/<?php echo $this->escape($child->pageTitle); ?>/"><?php echo $this->escape($child->title); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+
+    <?php /* else: ?>
+
+        <form class="form-horizontal" action="/<?php echo $this->linkInfo->getFullUrl(); ?>" method="post">
+
+            <div class="control-group">
+                <label class="control-label">Пароль</label>
+
+                <div class="controls">
+                    <input type="password" name="data[password]" value=""/>
+                    <span class="help-inline hide">Заполните поле</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" class="btn btn-success" value="Войти" style="width: 70px;"/>
+            </div>
+        </form>
+
+    <?php endif; */ ?>
+
+</div>

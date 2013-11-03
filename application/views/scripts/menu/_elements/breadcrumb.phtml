@@ -1,0 +1,4 @@
+<?php if ($this->parentItem->parent !== null): ?>
+    <?php echo $this->partial('menu/_elements/breadcrumb.phtml', array('parentItem' => $this->parentItem->parent)); ?>
+<?php endif; ?>
+<li><a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'index', 'parentId' => $this->parentItem->getId())); ?>"><?php echo $this->escape($this->parentItem->getTitle()); ?></a> <span class="divider">/</span></li>

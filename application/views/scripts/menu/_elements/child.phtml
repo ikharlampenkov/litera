@@ -1,0 +1,6 @@
+<?php foreach ($this->child as $parent): ?>
+    <option value="<?php echo $this->escape($parent->id); ?>" <?php if ($this->menuItem->parent !== null && $this->menuItem->parent->getId() == $parent->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->wid . ' ' . $this->escape($parent->title); ?></option>
+    <?php if ($parent->hasChild()): ?>
+        <?php echo $this->partial('menu/_elements/child.phtml', array('child' => $parent->getChild(), 'menuItem' => $this->menuItem, 'wid' => $this->wid . '--')); ?>
+    <?php endif; ?>
+<?php endforeach; ?>

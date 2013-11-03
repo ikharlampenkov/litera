@@ -1,0 +1,32 @@
+<div class="clear"></div>
+
+<h1>Редактировать группу разделов</h1>
+
+<div class="cont_text">
+
+    <form action="/menu/editgroup/id/<?php echo $this->escape($this->menuGroup->id); ?>/" method="post">
+        <table>
+            <tr>
+                <td class="ttovar" width="200">Название</td>
+                <td class="ttovar"><input name="data[title]" value="<?php echo $this->escape($this->menuGroup->title); ?>"/></td>
+            </tr>
+            <tr>
+                <td class="ttovar">Ссылка</td>
+                <td class="ttovar"><input name="data[link]" value="<?php echo $this->escape($this->menuGroup->link); ?>"/></td>
+            </tr>
+            <tr>
+                <td class="ttovar">Обработчик</td>
+                <td class="ttovar">
+                    <select name="data[handler_id]">
+                        <option value="">с подразделами</option>
+                        <?php foreach ($this->handlerList as $handler): ?>
+                        <option value="<?php echo $this->escape($handler->id); ?>" <?php if (is_object($this->menuGroup->handler) && $this->menuGroup->handler->id == $handler->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($handler->title); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input id="save" name="save" type="submit" value="Сохранить"/>
+    </form>
+
+</div>

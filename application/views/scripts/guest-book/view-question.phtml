@@ -1,0 +1,40 @@
+<div class="page_guestbook">
+    <div class="page_guestbook_inner">
+
+        <?php if (isset($this->exception_msg)): ?>
+            <div class="alert alert-error">
+                <h4 class="alert-heading">Ошибка!</h4>
+                <?php echo $this->escape($this->exception_msg); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->parentItem != null): ?>
+            <ul class="breadcrumb">
+                <li><a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'view', 'parent' => ''), $this->linkInfo->getFullUrl('-')); ?>"><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Гостевая книга<?php endif; ?></a> <span class="divider">/</span></li>
+                <?php if ($this->parentItem->parent !== null): ?>
+                    <?php if ($this->parentItem->parent->parent !== null): ?>
+                        <?php echo $this->partial('guest-book/_elements/public_breadcrumb.phtml', array('parentItem' => $this->parentItem->parent->parent, 'linkInfo' => $this->linkInfo)); ?>
+                    <?php endif; ?>
+                    <li><a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'view', 'parent' => $this->parentItem->parent->id), $this->linkInfo->getFullUrl('-') . '-parent'); ?>"><?php echo $this->escape($this->parentItem->parent->getQuestion()); ?></a> <span class="divider">/</span></li>
+                <?php endif; ?>
+                <li class="active"><?php echo $this->escape($this->parentItem->question); ?></li>
+            </ul>
+        <?php endif; ?>
+
+        <h1><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Гостевая книга<?php endif; ?>. Вопрос</h1>
+
+        <?php if ($this->question !== false): ?>
+            <p><span class="question_title">Тема обсуждения:</span> <?php echo $this->escape($this->question->subject); ?></p><br/>
+
+            <p><span class="question_title">ФИО:</span> <?php echo $this->escape($this->question->name); ?></p><br/>
+
+            <p><span class="question_title">Вопрос:</span> <?php echo $this->escape($this->question->question); ?></p><br/>
+
+            <p><span class="question_title">Ответ:</span> <?php echo $this->escape($this->question->answer); ?></p><br/>
+
+            <br/><br/>
+            <a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'view', 'parent' => $this->question->parent->id), $this->linkInfo->getFullUrl('-') . '-parent'); ?>" class="btn btn-info">Назад</a>
+        <?php endif; ?>
+        <br/>
+    </div>
+</div>

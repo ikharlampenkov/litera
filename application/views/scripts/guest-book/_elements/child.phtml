@@ -1,0 +1,6 @@
+<?php foreach ($this->child as $parent): ?>
+    <option value="<?php echo $this->escape($parent->id); ?>" <?php if ($this->question->parent !== null && $this->question->parent->getId() == $parent->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->wid . ' ' . $this->escape($parent->title); ?></option>
+    <?php if ($parent->hasChild()): ?>
+        <?php echo $this->partial('contentpage/_elements/child.phtml', array('child' => $parent->getChild(), 'question' => $this->question, 'wid' => $this->wid . '--')); ?>
+    <?php endif; ?>
+<?php endforeach; ?>

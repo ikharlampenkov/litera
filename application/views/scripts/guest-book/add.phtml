@@ -1,0 +1,10 @@
+<legend>Добавить вопрос</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<?php echo $this->form; ?>

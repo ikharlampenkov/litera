@@ -1,0 +1,109 @@
+<div class="clear"></div>
+
+<legend>Редактировать раздел</legend>
+
+<div class="cont_text">
+
+    <?php if (isset($this->exception_msg)): ?>
+        <div class="alert alert-error">
+            <h4 class="alert-heading">Ошибка!</h4>
+            <?php echo $this->escape($this->exception_msg); ?>
+        </div>
+    <?php endif; ?>
+
+    <form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'menu', 'action' => 'edit', 'id' => $this->menuItem->id)) ?>/" method="post">
+
+        <div class="control-group">
+            <label class="control-label">Название</label>
+
+            <div class="controls">
+                <input name="data[title]" value="<?php echo $this->escape($this->menuItem->title); ?>"/>
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Ссылка</label>
+
+            <div class="controls">
+                <input name="data[link]" value="<?php echo $this->escape($this->menuItem->link); ?>"/>
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Обработчик</label>
+
+            <div class="controls">
+                <select name="data[handler_id]" id="handler" onchange="showContentPage(this, <?php echo $this->menuItem->id; ?>);">
+                    <?php foreach ($this->handlerList as $handler): ?>
+                        <option value="<?php echo $this->escape($handler->id); ?>" <?php if ($this->menuItem->handler->id == $handler->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($handler->title); ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+        <div id="contentPageContainer" class="hide">
+
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Родительский элемент</label>
+
+            <div class="controls">
+                <select name="data[parent_id]">
+                    <option value="null" <?php if ($this->menuItem->parent == null): ?>selected="selected"<?php endif; ?>>нет</option>
+                    <?php foreach ($this->parentList as $parent): ?>
+                        <option value="<?php echo $this->escape($parent->id); ?>" <?php if ($this->menuItem->parent !== null && $this->menuItem->parent->id == $parent->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($parent->title); ?></option>
+                        <?php if ($parent->hasChild()): ?>
+                            <?php echo $this->partial('menu/_elements/child.phtml', array('child' => $parent->getChild(), 'menuItem' => $this->menuItem, 'wid' => '--')); ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Отображать?</label>
+
+            <div class="controls">
+                <input type="checkbox" name="data[is_visible]" <?php if ($this->menuItem->isVisible): ?>checked="checked"<?php endif; ?> />
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Порядок вывода</label>
+
+            <div class="controls">
+                <input name="data[sort_order]" value="<?php echo $this->escape($this->menuItem->sortOrder); ?>"/>
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Меню</label>
+
+            <div class="controls">
+                <?php foreach ($this->menuList as $menu): ?>
+                    <label class="checkbox">
+                        <input name="data[menu][]" type="checkbox" value="<?php echo $this->escape($menu->id); ?>" <?php if ($this->menuItem->checkMenu($menu->id)): ?>checked="checked"<?php endif; ?> >
+                        <?php echo $this->escape($menu->title); ?>
+                    </label>
+                <?php endforeach; ?>
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <input type="submit" class="btn btn-success" value="Сохранить"/>
+            <a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            showContentPage('#handler', <?php echo $this->menuItem->id; ?>);
+        });
+    </script>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="clear"></div>
+
+<legend>Добавить меню</legend>
+
+
+    <form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'menu', 'action' => 'addmenu')) ?>" method="post">
+
+        <div class="control-group">
+            <label class="control-label">Название</label>
+
+            <div class="controls">
+                <input name="data[title]" value="<?php echo $this->escape($this->menuMenu->title); ?>"/>
+                <span class="help-inline hide">Заполните поле</span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <input type="submit" class="btn btn-success" value="Сохранить"/>
+            <a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+        </div>
+    </form>

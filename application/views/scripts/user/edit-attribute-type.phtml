@@ -1,0 +1,41 @@
+<legend class="heading">Редактировать тип атрибута</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'user', 'action' => 'editAttributeType', 'id' => $this->type->id)); ?>" method="post">
+    <div class="control-group">
+        <label class="control-label">Название</label>
+
+        <div class="controls">
+            <input type="text" name="data[title]" value="<?php echo $this->escape($this->type->title); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Описание</label>
+
+        <div class="controls">
+            <input type="text" name="data[description]" value="<?php echo $this->escape($this->type->description); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Обработчик</label>
+
+        <div class="controls">
+            <input type="text" name="data[handler]" value="<?php echo $this->escape($this->type->handler); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'viewAttributeType')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

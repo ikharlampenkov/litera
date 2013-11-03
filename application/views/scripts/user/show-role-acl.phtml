@@ -1,0 +1,34 @@
+<legend class="heading">Права для роли <?php echo $this->escape($this->role->rtitle); ?> <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'index')); ?>">Все роли</a></legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'user', 'action' => 'showRoleAcl', 'idRole' => $this->role->id)); ?>" method="post">
+    <table class="table table-bordered">
+        <tr>
+            <th>Ресурс</th>
+            <th style="width: 90px;">Разрешение</th>
+            <th>Уточнение привелегий</th>
+        </tr>
+
+        <?php if ($this->userResourceList !== false): ?>
+            <?php foreach ($this->userResourceList as $resource): ?>
+                <tr>
+                    <td><?php if ($resource->rtitle != ''): ?><?php echo $this->escape($resource->rtitle); ?> (<?php echo $this->escape($resource->title) ?>)<?php else: ?><?php echo $this->escape($resource->title); ?><?php endif; ?></td>
+                    <td><input type="checkbox" name="data[<?php echo $this->escape($resource->id); ?>][is_allow]" <?php if (isset($this->roleAcl[$resource->id]) && $this->roleAcl[$resource->id]->isAllow): ?>checked="checked"<?php endif; ?> /></td>
+                    <td><input type="text" name="data[<?php echo $this->escape($resource->id); ?>][privileges]" value="<?php if (isset($this->roleAcl[$resource->id])): ?><?php echo $this->roleAcl[$resource->id]->privileges; ?><?php else: ?>show<?php endif; ?>"/></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+    </table>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

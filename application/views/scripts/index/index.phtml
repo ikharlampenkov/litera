@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="news">
+        <div class="n_title">
+            <a href="#" title="Новости">Новости</a>
+        </div>
+
+        <?php if ($this->newsMainList != false): ?>
+            <?php foreach ($this->newsMainList as $item): ?>
+                <div class="one_item">
+                    <div class="item_image">
+                        <?php if ($item->file->getName()): ?>
+                            <a href="<?php if ($this->category != null): ?>
+                                         <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id, 'categoryId' => $this->category->id), $item->link->getFullUrl('-') . '-viewnews-category'); ?>
+                                     <?php else: ?>
+                                         <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->getFullUrl('-') . '-viewnews'); ?>
+                                     <?php endif; ?>" title="<?php echo $this->escape($item->title); ?>">
+                                <img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>" title="<?php echo $this->escape($item->title); ?>" alt="<?php echo $this->escape($item->title); ?>" />
+                            </a>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="item_right">
+                        <p class="item_title"><a href="
+                                            <?php if ($this->category != null): ?>
+                                                <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id, 'categoryId' => $this->category->id), $item->link->getFullUrl('-') . '-viewnews-category') ?>
+                                            <?php else: ?>
+                                                <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $item->link->getFullUrl('-') . '-viewnews') ?>
+                                            <?php endif; ?>" title=""><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?> <?php echo $this->escape($item->title); ?></a>
+                        </p>
+
+                        <p class="item_shortcontent"><?php echo $this->escape($item->shortText); ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+    </div>
+</div>
+
+<div class="sidebar">
+
+</div>

@@ -1,0 +1,344 @@
+html,
+button,
+input,
+select,
+textarea {
+    color: #000000;
+}
+
+body {
+    font: normal 12pt Tahoma;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+a {
+    color: #023d80;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #023d80;
+    text-decoration: none;
+}
+
+.header ul, ul li {
+    list-style-type: none;
+}
+
+/* ==========================================================================
+   Примеры медиа-запроса
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 0px 26px rgba(50, 50, 50, 0.52);
+    -moz-box-shadow: 0px 0px 26px rgba(50, 50, 50, 0.52);
+    box-shadow: 0px 0px 26px rgba(50, 50, 50, 0.52);
+    margin-bottom: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 0;
+    background-color: #fff;
+}
+
+.main_menu {
+    clear: left;
+    margin-top: 37px;
+}
+
+ul.menu {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 1040px;
+    margin-left: -20px;
+    background: rgb(218, 218, 218); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(218, 218, 218, 1) 0%, rgba(151, 153, 155, 1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(218, 218, 218, 1)), color-stop(100%, rgba(151, 153, 155, 1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(218, 218, 218, 1) 0%, rgba(151, 153, 155, 1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(218, 218, 218, 1) 0%, rgba(151, 153, 155, 1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(218, 218, 218, 1) 0%, rgba(151, 153, 155, 1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(218, 218, 218, 1) 0%, rgba(151, 153, 155, 1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dadada', endColorstr='#97999b', GradientType=0); /* IE6-9 */
+}
+
+ul.menu li {
+    float: left;
+    list-style: none;
+    position: relative;
+}
+
+ul.menu li a {
+    color: #ee3537;
+    display: block;
+    padding: 8px 20px 10px;
+    text-decoration: none;
+    border-right: 1px solid #aaacad;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+}
+
+ul.menu li a:hover {
+    color: #f55e60;
+}
+
+ul.menu li:first-child a:hover {
+    border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+}
+
+/*Выпадающее меню*/
+ul.menu li ul {
+    display: none;
+    font-size: 10pt;
+}
+
+ul.menu li:hover ul {
+    display: block;
+    position: absolute;
+    top: 24px;
+    background-color: #045d90;
+    z-index: 1000;
+}
+
+ul.menu li:hover ul li {
+    float: none;
+    width: 230px;
+    border-right: none;
+    margin-left: -40px;
+}
+
+ul.menu li:hover ul li a {
+    border-right: none;
+    padding: 6px 20px 8px;
+    text-shadow: none;
+    color: white;
+}
+
+ul.menu li:hover ul li a:hover {
+    background-color: transparent;
+    color: #c1deff;
+    text-decoration: none;
+}
+
+ul.menu li:hover ul li:first-child a:hover {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+.content {
+    width: 680px;
+    min-height: 500px;
+    float: left;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.content_main {
+    width: 1000px;
+    min-height: 500px;
+    float: left;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.news {
+    margin-bottom: 40px;
+    clear: left;
+}
+
+.footer {
+    clear: left;
+    padding-bottom: 20px;
+}
+
+.footer p {
+    margin: 1em 0 -10px 0;
+}
+
+
+
+
+
+/************* admin *********************/
+
+table {
+    width: 100%;
+}
+
+input, select {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: 14px;
+}
+
+textarea {
+    width: 100%;
+    height: 250px;
+}
+
+#save {
+    width: 100px;
+}
+
+.tedit {
+    background-color: #ebf4ff;
+    padding: 10px;
+    width: 120px;
+}
+
+.tdel {
+    background-color: #ebf4ff;
+    padding: 10px;
+    width: 50px;
+}
+
+a.tdel {
+    color: #830000;
+}
+
+a.tedit {
+    color: #1465c0;
+}
+
+.ttovar {
+    background-color: #f7f7f7;
+    color: #000000;
+    padding: 10px;
+}
+
+a.ttovar {
+    color: #000000;
+}
+
+.ttovar_title {
+    background-color: #f7f7f7;
+    padding: 10px;
+    width: 210px;
+}
+
+.well li {
+    position: relative;
+}
+
+.well .nav {
+    padding: 0 15px;
+    position: relative;
+    color: #696969;
+    font-family: Tahoma;
+    font-size: 14px;
+}
+
+.edit {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+}
+
+.del {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.sub-menu {
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 520px;
+    background: url(/images/submenu.png) top left no-repeat;
+    vertical-align: middle;
+}
+
+.document {
+    list-style: none;
+    padding: 0;
+}
+
+.document li {
+    padding: 5px 0;
+}
+
+.doc_text {
+    text-align: justify;
+}
+
+/*************** guest book ******************/
+.page_guestbook {
+    width: 1000px;
+    min-height: 500px;
+    float: left;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.page_guestbook_inner {
+    width: 836px;
+    margin: 53px auto 0 auto;
+    position: relative;
+    padding: 0 0 30px 0;
+}
+
+.page_guestbook .page_guestbook_inner h1 {
+    color: #4e90cd;
+    font-family: Tahoma, sans-serif;
+    font-size: 31px;
+    font-weight: 100;
+    padding: 0;
+    margin: 0 0 35px 0;
+}
+
+.page_guestbook .page_guestbook_inner p {
+    text-align: justify;
+}
+
+.answer_question {
+    color: #4e90cd;
+    font-family: Tahoma, sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 0;
+    margin: 0;
+}
+
+.question_title {
+    color: #4e90cd;
+    font-family: Tahoma, sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 0;
+    margin: 0;
+}

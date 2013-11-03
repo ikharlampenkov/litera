@@ -1,0 +1,4 @@
+<?php if ($this->parentItem->parent !== null): ?>
+    <?php echo $this->partial('guest-book/_elements/breadcrumb.phtml', array('parentItem' => $this->parentItem->parent, 'linkInfo' => $this->linkInfo)); ?>
+<?php endif; ?>
+<li><a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'index', 'parent' => $this->parentItem->getId()), $this->linkInfo->getFullUrl('-') . '-parent'); ?>"><?php echo $this->escape($this->parentItem->getQuestion()); ?></a> <span class="divider">/</span></li>

@@ -1,0 +1,80 @@
+2013-11-03T22:11:40+07:00 WARN (4): include_once(F:\www\litera\library\TM\Acl\Acl.php): failed to open stream: No such file or directory
+2013-11-03T22:11:40+07:00 WARN (4): include_once(): Failed opening 'F:\www\litera\library\TM\Acl\Acl.php' for inclusion (include_path='F:\www\litera\application/models;F:\www\litera\application/../library;F:\www\litera\application/plugins;F:\www\litera\library;.;C:\Zend\ZendServer\share\ZendFramework\library;F:/www/ekuz_stable/private/Lib/classes;F:/www/ekuz_stable/private/Lib/PEAR;F:/www/ekuz_stable/private/Lib/VL;F:/www/ekuz_stable/private/config;F:/www/ekuz_stable/private/pattern/script;F:/www/ekuz_stable/private/Lib/smarty/libs;F:/www/ekuz_stable/private/Lib/inc;')
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 NOTICE (5): Page not found
+2013-11-03T22:19:53+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 NOTICE (5): Page not found
+2013-11-03T22:19:53+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 NOTICE (5): Page not found
+2013-11-03T22:19:53+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 NOTICE (5): Page not found
+2013-11-03T22:19:53+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:19:53+07:00 NOTICE (5): Page not found
+2013-11-03T22:19:53+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:19:53+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:18+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:18+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:18+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 NOTICE (5): Page not found
+2013-11-03T22:20:19+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 NOTICE (5): Page not found
+2013-11-03T22:20:19+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 NOTICE (5): Page not found
+2013-11-03T22:20:19+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 NOTICE (5): Page not found
+2013-11-03T22:20:19+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:20:19+07:00 NOTICE (5): Page not found
+2013-11-03T22:20:19+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:20:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:21:25+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:21:25+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:21:26+07:00 NOTICE (5): Page not found
+2013-11-03T22:21:26+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:21:26+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:21:26+07:00 NOTICE (5): Page not found
+2013-11-03T22:21:26+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:21:26+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:21:26+07:00 NOTICE (5): Page not found
+2013-11-03T22:21:26+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:21:26+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:21:26+07:00 NOTICE (5): Page not found
+2013-11-03T22:21:26+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:21:26+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:21:26+07:00 NOTICE (5): Page not found
+2013-11-03T22:21:26+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:21:26+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:26:03+07:00 NOTICE (5): Page not found
+2013-11-03T22:26:03+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:26:20+07:00 NOTICE (5): Page not found
+2013-11-03T22:26:20+07:00 NOTICE (5): Request Parameters
+2013-11-03T22:31:21+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:31:22+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:31:40+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:31:58+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-03T22:31:58+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-03T22:31:58+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-03T22:31:58+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-03T22:31:58+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-03T22:31:58+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-03T22:33:03+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-03T22:33:51+07:00 WARN (4): Invalid argument supplied for foreach()

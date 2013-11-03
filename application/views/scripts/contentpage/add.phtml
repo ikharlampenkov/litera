@@ -1,0 +1,75 @@
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="/ckfinder/ckfinder.js"></script>
+
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('data[content]', {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?Type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?Type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+        });
+    });
+
+</script>
+
+<legend>Добавить контентную страницу</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'contentpage', 'action' => 'add')); ?>" method="post">
+
+    <div class="control-group">
+        <label class="control-label">Ключ</label>
+
+        <div class="controls">
+            <input type="text"  name="data[page_title]" value="<?php echo $this->escape($this->contentPage->pageTitle); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Название</label>
+
+        <div class="controls">
+            <input type="text"  name="data[title]" value="<?php echo $this->escape($this->contentPage->title); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Родительский элемент</label>
+
+        <div class="controls">
+            <select name="data[parent_page]">
+                <option value="null" <?php if ($this->contentPage->parentPage == null): ?>selected="selected"<?php endif; ?>>нет</option>
+                <?php foreach ($this->parentPageList as $parent): ?>
+                    <option value="<?php echo $this->escape($parent->pageTitle); ?>" <?php if ($this->contentPage->parentPage !== null && $this->contentPage->parentPage->getPageTitle() == $parent->pageTitle): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($parent->title); ?></option>
+                    <?php if ($parent->hasChild()): ?>
+                        <?php echo $this->partial('contentpage/_elements/child.phtml', array('child' => $parent->getChild(), 'contentPage' => $this->contentPage, 'wid' => '--')); ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </select>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Содержание</label>
+
+        <div class="controls">
+            <textarea name="data[content]"><?php echo stripslashes(stripcslashes($this->contentPage->content)); ?></textarea>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'contentpage', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

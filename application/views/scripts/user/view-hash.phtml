@@ -1,0 +1,29 @@
+<?php if ($this->ifAllowed('user/index', 'show-attribute-hash')): ?>
+    <legend class="heading">Список атрибутов для пользователей</legend>
+
+    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'addAttributeHash')) ?>"><i class="icon-plus"></i>Добавить</a><br/><br/>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Название</th>
+            <th>Ключ</th>
+            <th>Тип</th>
+            <th>Действия</th>
+        </tr>
+
+        <?php if ($this->attributeHashList !== false): ?>
+            <?php foreach ($this->attributeHashList as $attributeHash): ?>
+                <tr>
+                    <td><?php echo $this->escape($attributeHash->title); ?></td>
+                    <td><?php echo $this->escape($attributeHash->attributeKey); ?></td>
+                    <td><?php echo $this->escape($attributeHash->type->title); ?></td>
+                    <td class="tedit">
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey)); ?>"><i class="icon-pencil"></a>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey)); ?>" onclick="return confirmDelete('<?php echo $attributeHash->title ?>');"><i class="icon-remove"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        <?php endif ?>
+
+    </table>
+<?php endif; ?>

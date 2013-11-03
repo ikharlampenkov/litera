@@ -1,0 +1,4 @@
+<?php if ($this->parentItem->parentPage !== null): ?>
+    <?php echo $this->partial('contentpage/_elements/breadcrumb.phtml', array('parentItem' => $this->parentItem->parentPage)); ?>
+<?php endif; ?>
+<li><a href="<?php echo $this->url(array('controller' => 'contentpage', 'action' => 'index', 'parentPage' => $this->parentItem->pageTitle)); ?>"><?php echo $this->escape($this->parentItem->getTitle()); ?></a> <span class="divider">/</span></li>

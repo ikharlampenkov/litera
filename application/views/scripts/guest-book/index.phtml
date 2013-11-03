@@ -1,0 +1,68 @@
+<div class="content_main">
+    <legend><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Гостевая книга<?php endif; ?></legend>
+
+    <?php if (isset($this->exception_msg)): ?>
+        <div class="alert alert-error">
+            <h4 class="alert-heading">Ошибка!</h4>
+            <?php echo $this->escape($this->exception_msg); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($this->parentItem != null): ?>
+        <ul class="breadcrumb">
+            <li><a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'index', 'parent' => '')); ?>"><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Гостевая книга<?php endif; ?></a> <span class="divider">/</span></li>
+            <?php if ($this->parentItem->parent !== null): ?>
+                <?php if ($this->parentItem->parent->parent !== null): ?>
+                    <?php echo $this->partial('guest-book/_elements/breadcrumb.phtml', array('parentItem' => $this->parentItem->parent->parent)); ?>
+                <?php endif; ?>
+                <li><a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'index', 'parent' => $this->parentItem->parent->id)); ?>"><?php echo $this->escape($this->parentItem->parent->getQuestion()); ?></a> <span class="divider">/</span></li>
+            <?php endif; ?>
+            <li class="active"><?php echo $this->escape($this->parentItem->question); ?></li>
+        </ul>
+    <?php endif; ?>
+
+    <?php if ($this->parentItem != null): ?>
+        <a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'add')); ?>"><i class="icon-plus"></i>Добавить вопрос</a> /
+    <?php endif; ?>
+    <a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'add-folder')); ?>"><i class="icon-plus"></i>Добавить папку</a>
+    <br/><br/>
+
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Вопрос</th>
+            <th>Ответ</th>
+            <th>Модерация</th>
+            <th>Действие</th>
+        </tr>
+
+        <?php if ($this->questionList !== false): ?>
+            <?php foreach ($this->questionList as $item): ?>
+                <tr>
+                    <td>
+                        <?php if ($item->isFolder): ?>
+                            <i class="icon-folder-close"></i><a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'index', 'parent' => $item->id)); ?>"><?php echo $this->escape($item->question); ?></a>
+                        <?php else: ?>
+                            <?php echo $this->escape($item->question); ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if (!$item->isFolder): ?>
+                            <?php echo $this->escape(substr($item->answer, 0, 100)); ?>
+                        <?php endif; ?>
+                    </td>
+                    <td><?php if ($item->isModerate): ?><i class="icon-ok"></i><?php else: ?><i class="icon-minus"></i><?php endif; ?></td>
+                    <td class="tedit">
+                        <?php if ($item->isFolder): ?>
+                            <a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'edit-folder', 'id' => $item->id)); ?> "><i class="icon-pencil"></a>
+                            <a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'delete-folder', 'id' => $item->id)); ?> " onclick="return confirmDelete('<?php $this->escape($item->question); ?> ');"><i class="icon-remove"></i></a>
+                        <?php else: ?>
+                            <a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'edit', 'id' => $item->id)); ?> "><i class="icon-pencil"></a>
+                            <a href="<?php echo $this->url(array('controller' => 'guest-book', 'action' => 'delete', 'id' => $item->id)); ?> " onclick="return confirmDelete('<?php $this->escape($item->question); ?> ');"><i class="icon-remove"></i></a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </table>
+</div>

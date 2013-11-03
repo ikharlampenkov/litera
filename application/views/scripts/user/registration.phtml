@@ -1,0 +1,64 @@
+<legend>Регистрация</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'user', 'action' => 'registration')); ?>" method="post">
+
+    <div class="control-group">
+        <label class="control-label">Электронная почта</label>
+
+        <div class="controls">
+            <input type="text" name="data[login]" value="<?php echo $this->escape($this->user->login); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+
+            <p class="help-block">Для проверки регистрации и в целях безопасности нам нужен адрес вашей электропочты.</p>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Пароль</label>
+
+        <div class="controls">
+            <input type="text" name="data[password]" value="<?php echo $this->escape($this->user->password); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+
+            <p class="help-block">Должен содержать не менее 5 символов и не может совпадать с логином. Не используйте простые пароли, будьте разумны.</p>
+        </div>
+    </div>
+
+
+    <?php if ($this->attributeHashList !== false): ?>
+        <?php foreach ($this->attributeHashList as $attributeHash): ?>
+            <?php if ($attributeHash->attributeKey == 'birthday' || $attributeHash->attributeKey == 'name' || $attributeHash->attributeKey == 'phone'): ?>
+                <div class="control-group">
+                    <label class="control-label"><?php echo $this->escape($attributeHash->title); ?></label>
+
+                    <div class="controls">
+                        <?php echo $attributeHash->type->getHTMLFrom($attributeHash, $this->user); ?>
+                        <span class="help-inline hide">Заполните поле</span>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+
+    <div class="control-group">
+        <label class="control-label">Введите код с картинки</label>
+
+        <div class="controls">
+            <img src="/kcaptcha/?<?php echo session_name() . '=' . session_id(); ?>">
+            <input type="text" name="data[captcha]" value="" class="input-mini"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

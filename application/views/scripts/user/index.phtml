@@ -1,0 +1,81 @@
+<legend class="heading">Пользователи</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<div class="page_block">
+    <?php if ($this->ifAllowed('user/index', 'show-attribute-hash')): ?>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'viewHash')) ?>">Список атрибутов</a>
+    <?php endif; ?>
+
+    <?php if ($this->ifAllowed('user/index', 'show-attribute-type')): ?>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'viewAttributeType')) ?>">Типы атрибутов</a>
+    <?php endif; ?>
+
+    <?php if ($this->ifAllowed('user/index', 'show-resource')): ?>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'viewResource')) ?>">Ресурсы</a>
+    <?php endif; ?>
+</div>
+<br/>
+
+<a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')) ?>"><i class="icon-plus"></i>Добавить</a><br/><br/>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ФИО</th>
+        <th>Логин</th>
+        <th>Роль</th>
+        <th>Действия</th>
+    </tr>
+
+    <?php if ($this->userList !== false): ?>
+        <?php foreach ($this->userList as $user): ?>
+
+            <tr>
+                <td>
+                    <?php if ($user->searchAttribute('name')): ?><?php echo $user->getAttribute('name')->value; ?><?php else: ?>-<?php endif; ?>
+                </td>
+                <td><?php echo $user->login ?></td>
+                <td><?php echo $user->role->rtitle ?></td>
+                <td class="tedit">
+                    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'edit', 'id' => $user->id)); ?>"><i class="icon-pencil"></a>
+                    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete', 'id' => $user->id)); ?>" onclick="return confirmDelete('<?php $user->login ?>');"><i class="icon-remove"></i></a></td>
+            </tr>
+
+        <?php endforeach; ?>
+    <?php endif; ?>
+</table>
+
+
+<?php if ($this->ifAllowed('user/index', 'show-role')): ?>
+    <br/>
+    <legend class="heading">Роли</legend>
+
+    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'addRole')) ?>"><i class="icon-plus"></i>Добавить</a><br/><br/>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Название</th>
+            <th>Название</th>
+            <th>Права</th>
+            <th>Действия</th>
+        </tr>
+
+        <?php if ($this->userRoleList !== false): ?>
+            <?php foreach ($this->userRoleList as $role): ?>
+                <tr>
+                    <td><img src="/img/icon/group.png"/>&nbsp;<?php echo $role->rtitle ?></td>
+                    <td><?php echo $role->title ?></td>
+                    <td class="tedit"><img src="/img/icon/comanda.png"/>&nbsp;<a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'showRoleAcl', 'idRole' => $role->id)) ?>">права</a></td>
+                    <td class="tedit">
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'editRole', 'id' => $role->id)) ?>"><i class="icon-pencil"></i></a>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'deleteRole', 'id' => $role->id)) ?>" onclick="return confirmDelete('<?php $role->rtitle ?>');"><i class="icon-remove"></i></a></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </table>
+<?php endif; ?>

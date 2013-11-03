@@ -1,0 +1,26 @@
+<?php if ($this->ifAllowed('user/index', 'show-resource')): ?>
+    <legend class="heading">Ресурсы</legend>
+
+    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'addResource')); ?>"><i class="icon-plus"></i> Добавить</a><br/><br/>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Название</th>
+            <th>Ключ</th>
+            <th>Действия</th>
+        </tr>
+
+        <?php if ($this->userResourceList !== false): ?>
+            <?php foreach ($this->userResourceList as $resource): ?>
+                <tr>
+                    <td><?php echo $resource->rtitle ?></td>
+                    <td><?php echo $resource->title ?></td>
+                    <td class="tedit">
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'editResource', 'id' => $resource->id)); ?>"><i class="icon-pencil"></i></a>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'deleteResource', 'id' => $resource->id)); ?>" onclick="return confirmDelete('<?php echo $resource->rtitle ?>');"><i class="icon-remove"></i></a></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+    </table>
+<?php endif; ?>

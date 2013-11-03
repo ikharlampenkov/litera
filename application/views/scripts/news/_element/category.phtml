@@ -1,0 +1,15 @@
+<ul class="secand_menu">
+    <li>
+        <a href="/<?php echo $this->linkInfo->getFullUrl(); ?>/">КАТЕГОРИИ</a>
+        <ul>
+            <?php if ($this->categoryList !== false): ?>
+                <?php foreach ($this->categoryList as $item): ?>
+                    <li>
+                        <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'view', 'categoryId' => $item->id), $this->linkInfo->getFullUrl('-') . '-category') ?>"><?php echo $this->escape($item->title); ?></a>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
+
+    </li>
+</ul>

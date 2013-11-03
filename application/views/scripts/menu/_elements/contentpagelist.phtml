@@ -1,0 +1,12 @@
+<div class="control-group">
+    <label class="control-label">Страница</label>
+
+    <div class="controls">
+        <select name="data[content_page]">
+            <?php foreach ($this->contentPageList as $contentPage): ?>
+                <option value="<?php echo $this->escape($contentPage->pageTitle); ?>" <?php if ($contentPage->link != null && $this->item == $contentPage->link->getId()): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($contentPage->title); ?></option>
+            <?php endforeach; ?>
+        </select>
+        <span class="help-inline hide">Заполните поле</span>
+    </div>
+</div>

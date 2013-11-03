@@ -1,0 +1,8 @@
+<?php if ($this->parentItem->parentPage !== null): ?>
+    <?php echo $this->partial('contentpage/_elements/public_breadcrumb.phtml', array('parentItem' => $this->parentItem->parentPage, 'link' => $this->link)); ?>
+<?php endif; ?>
+<?php if ($this->parentItem->parentPage->getLink()->link == $this->link): ?>
+    <li><a href="/<?php echo $this->escape($this->link); ?>/"><?php echo $this->escape($this->parentItem->getTitle()); ?></a> <span class="divider">/</span></li>
+<?php else: ?>
+    <li><a href="/<?php echo $this->escape($this->link); ?>/subtitle/<?php echo $this->escape($this->parentItem->pageTitle); ?>/"><?php echo $this->escape($this->parentItem->getTitle()); ?></a> <span class="divider">/</span></li>
+<?php endif; ?>

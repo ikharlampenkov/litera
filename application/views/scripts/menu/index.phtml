@@ -1,0 +1,73 @@
+<legend>Управление разделами</legend>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+
+            <h3>Меню</h3>
+
+            <a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'addmenu')) ?>"><i class="icon-plus"></i> Добавить меню</a><br/><br/>
+
+            <div class="well" style="padding: 8px 0;">
+                <ul class="nav nav-list">
+                    <?php if ($this->menuList !== false): ?>
+                        <?php foreach ($this->menuList as $item): ?>
+                            <li <?php if ($item->id == $this->menuId): ?>class="active"<?php endif; ?>>
+                                <a href="/menu/index/menuId/<?php echo $item->id; ?>/"><?php echo $this->escape($item->title); ?></a>
+
+                                <span class="edit"><a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'editmenu', 'id' => $item->id)) ?>"><i class="icon-pencil"></i></a></span>
+                                <span class="del"><a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'deletemenu', 'id' => $item->id)) ?>" onclick="return confirmDelete('<?php echo $this->escape($item->title); ?>');"><i class="icon-remove"></i></a></span>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+        <div class="span9">
+
+            <h3>Пункты меню</h3>
+
+            <?php if ($this->parentItem != null): ?>
+                <ul class="breadcrumb">
+                    <li><a href="/menu/">Управление разделами</a> <span class="divider">/</span></li>
+                    <?php if ($this->parentItem->parent !== null): ?>
+                        <?php if ($this->parentItem->parent->parent !== null): ?>
+                            <?php echo $this->partial('menu/_elements/breadcrumb.phtml', array('parentItem' => $this->parentItem->parent->parent)); ?>
+                        <?php endif; ?>
+                        <li><a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'index', 'parentId' => $this->parentItem->parent->getId())); ?>"><?php echo $this->escape($this->parentItem->parent->getTitle()); ?></a> <span class="divider">/</span></li>
+                    <?php endif; ?>
+                    <li class="active"><?php echo $this->escape($this->parentItem->title); ?></li>
+                </ul>
+            <?php endif; ?>
+
+            <a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'add')) ?>"><i class="icon-plus"></i> Добавить пункт</a><br/><br/>
+
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Название</th>
+                    <th>Отображать</th>
+                    <th>Действия</th>
+                </tr>
+
+                <?php if ($this->itemList !== false): ?>
+                    <?php foreach ($this->itemList as $item): ?>
+                        <tr>
+                            <td><a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'index', 'parentId' => $item->id)) ?>"><?php echo $this->escape($item->title); ?></a></td>
+                            <td><?php if ($item->isVisible): ?><i class="icon-ok"></i><?php else: ?><i class="icon-minus"></i><?php endif; ?></td>
+                            <td class="tedit">
+                                <a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'edit', 'id' => $item->id)) ?>"><i class="icon-pencil"></i></a>
+                                <a href="<?php echo $this->url(array('controller' => 'menu', 'action' => 'delete', 'id' => $item->id)) ?>" onclick="return confirmDelete('<?php echo $this->escape($item->title); ?>');" style="color: #830000"><i class="icon-remove"></i></a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="cont_text">
+
+
+</div>

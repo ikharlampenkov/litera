@@ -1,0 +1,53 @@
+<legend>Добавить пользователя</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'user', 'action' => 'add')); ?>" method="post">
+    <div class="control-group">
+        <label class="control-label">Логин</label>
+
+        <div class="controls">
+            <input type="text" name="data[login]" value="<?php echo $this->escape($this->user->login); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Пароль</label>
+
+        <div class="controls">
+            <input type="text" name="data[password]" value="<?php echo $this->escape($this->user->password); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Дата создания</label>
+
+        <div class="controls">
+            <input type="text" name="data[date_create]" value="<?php echo date('d.m.Y H:i:s', strtotime($this->escape($this->user->dateCreate))); ?>" class="datepicker"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Роль</label>
+
+        <div class="controls">
+            <select name="data[role_id]">
+                <?php foreach ($this->userRoleList as $role): ?>
+                    <option value="<?php echo $this->escape($role->id); ?>" <?php if ($this->user->role != null && $role->id == $this->user->role->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($role->title); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

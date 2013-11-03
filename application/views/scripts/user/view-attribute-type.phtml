@@ -1,0 +1,27 @@
+<?php if ($this->ifAllowed('user/index', 'show-attribute-type')): ?>
+    <legend class="heading">Типы атрибутов</legend>
+
+    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'addAttributeType')); ?>"><i class="icon-plus"></i>Добавить</a><br/><br/>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Название</th>
+            <th>Обработчик</th>
+            <th>Действия</th>
+        </tr>
+
+        <?php if ($this->attributeTypeList !== false): ?>
+            <?php foreach ($this->attributeTypeList as $attributeType): ?>
+                <tr>
+                    <td><?php echo $this->escape($attributeType->title); ?></td>
+                    <td><?php echo $this->escape($attributeType->handler); ?></td>
+                    <td class="tedit">
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'editAttributeType', 'id' => $attributeType->id)); ?>"><i class="icon-pencil"></i></a>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'deleteAttributeType', 'id' => $attributeType->id)); ?>" onclick="return confirmDelete('<?php echo $this->escape($attributeType->title); ?>');"><i class="icon-remove"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+    </table>
+<?php endif; ?>

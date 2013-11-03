@@ -1,0 +1,86 @@
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="/ckfinder/ckfinder.js"></script>
+
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('data[full_text]', {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?Type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?Type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+        });
+    });
+</script>
+
+<legend>Добавить новость</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'news', 'action' => 'add')); ?>" method="post" enctype="multipart/form-data">
+    <div class="control-group">
+        <label class="control-label">Название</label>
+
+        <div class="controls">
+            <input type="text" name="data[title]" value="<?php echo $this->escape($this->news->title); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Дата публикации</label>
+
+        <div class="controls">
+            <input type="text" name="data[date]" value="<?php echo $this->escape(date('d.m.Y', strtotime($this->news->datePublic))); ?>" class="datepicker"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Категория</label>
+
+        <div class="controls">
+            <select name="data[category_id]">
+                <option value="null" <?php if ($this->news->category == null): ?>selected="selected"<?php endif; ?>>нет</option>
+                <?php foreach ($this->categoryList as $category): ?>
+                    <option value="<?php echo $this->escape($category->id); ?>" <?php if ($this->news->category !== null && $this->news->category->getId() == $category->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($category->title); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Файл</label>
+
+        <div class="controls">
+            <input type="file" name="file"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Анонс</label>
+
+        <div class="controls">
+            <textarea name="data[short_text]"><?php echo $this->escape($this->news->shortText); ?></textarea>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Полный текст</label>
+
+        <div class="controls">
+            <textarea name="data[full_text]"><?php echo $this->news->fullText; ?></textarea>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

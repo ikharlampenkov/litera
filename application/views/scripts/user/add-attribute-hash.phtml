@@ -1,0 +1,52 @@
+<legend class="heading">Добавить атрибут</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+<form class="form-horizontal" class="form-horizontal" action="<?php echo $this->url(array('controller' => 'user', 'action' => 'addAttributeHash')); ?>" method="post">
+    <div class="control-group">
+        <label class="control-label">Ключ</label>
+
+        <div class="controls">
+            <input type="text" name="data[attribute_key]" value="<?php echo $this->escape($this->hash->attributeKey); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Описание</label>
+
+        <div class="controls">
+            <input type="text" name="data[title]" value="<?php echo $this->escape($this->hash->title); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Тип</label>
+
+        <div class="controls">
+            <select name="data[type_id]">
+                <?php foreach ($this->attributeTypeList as $attributeType): ?>
+                    <option value="<?php echo $this->escape($attributeType->id); ?>" <?php if ($this->hash->type != null && $this->attributeType->id == $this->hash->type->id): ?>selected="selected"<?php endif; ?> ><?php echo $this->escape($attributeType->title); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Список значений (через ||)</label>
+
+        <div class="controls">
+            <input type="text" name="data[list_value]" value="<?php echo $this->escape($this->hash->getValueList(true)); ?>"/>
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'viewHash')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>

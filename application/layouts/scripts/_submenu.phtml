@@ -1,0 +1,13 @@
+<ul>
+    <?php foreach ($this->itemList as $item): ?>
+        <?php if ($item->isVisible): ?>
+            <li>
+            <a href="<?php echo $this->escape($item->getUrl($this->authUserRole)); ?>"><?php echo $this->escape($item->title) ?></a>
+
+                <?php if ($item->hasChild()): ?>
+                    <?php echo $this->partial('_submenu.phtml', array('itemList' => $item->getChild(), 'authUserRole' => $this->authUserRole)); ?>
+                <?php endif; ?>
+        </li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</ul>

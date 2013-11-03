@@ -1,0 +1,42 @@
+<legend>Телефоны</legend>
+
+<?php if (isset($this->exception_msg)): ?>
+    <div class="alert alert-error">
+        <h4 class="alert-heading">Ошибка!</h4>
+        <?php echo $this->escape($this->exception_msg); ?>
+    </div>
+<?php endif; ?>
+
+
+<form class="form-horizontal" action="<?php echo $this->url(array('controller' => 'phone', 'action' => 'index')); ?>" method="post">
+    <div class="control-group">
+        <label class="control-label">Индекс</label>
+
+        <div class="controls">
+            <input type="text" name="data[post_index]" value="<?php echo $this->escape($this->phone->postIndex); ?>" />
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Адрес</label>
+
+        <div class="controls">
+            <input type="text" name="data[address]" value="<?php echo $this->escape($this->phone->address); ?>" />
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Телефон</label>
+
+        <div class="controls">
+            <input type="text" name="data[phone]" value="<?php echo $this->escape($this->phone->phone); ?>" />
+            <span class="help-inline hide">Заполните поле</span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="Сохранить"/>
+        <a href="<?php echo $this->url(array('controller' => 'phone', 'action' => 'index')) ?>" class="btn btn-danger">Отмена</a>
+    </div>
+</form>
+
