@@ -154,7 +154,5 @@ class Application_Form_GuestBook_Question extends Twitter_Bootstrap_Form_Horizon
                  'decorators'                   => array('Actions')
             )
         );
-
-
     }
 }
