@@ -99,6 +99,7 @@ class Twitter_Bootstrap_Form_Decorator_Addon extends Zend_Form_Decorator_Abstrac
      * Renders an element with only the view helper decorator
      *
      * @param Zend_Form_Element $element
+     * @return string
      */
     protected function _renderElement (Zend_Form_Element $element)
     {
