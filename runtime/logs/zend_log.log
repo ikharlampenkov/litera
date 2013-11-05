@@ -82,3 +82,129 @@
 2013-11-04T00:07:06+07:00 NOTICE (5): Request Parameters
 2013-11-04T00:07:57+07:00 NOTICE (5): Page not found
 2013-11-04T00:07:57+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:00:42+07:00 NOTICE (5): Page not found
+2013-11-05T20:00:42+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:02:42+07:00 NOTICE (5): Page not found
+2013-11-05T20:02:42+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:02:42+07:00 NOTICE (5): Page not found
+2013-11-05T20:02:42+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:03:36+07:00 NOTICE (5): Page not found
+2013-11-05T20:03:36+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:03:36+07:00 NOTICE (5): Page not found
+2013-11-05T20:03:36+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:21:18+07:00 NOTICE (5): Page not found
+2013-11-05T20:21:18+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:21:18+07:00 NOTICE (5): Page not found
+2013-11-05T20:21:18+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:40:23+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:40:23+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:40:23+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:40:23+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:40:23+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-05T20:40:23+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:40:23+07:00 NOTICE (5): Page not found
+2013-11-05T20:40:23+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:40:23+07:00 NOTICE (5): Page not found
+2013-11-05T20:40:23+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:41:29+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:41:29+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:41:29+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:41:29+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:41:29+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-05T20:41:29+07:00 NOTICE (5): Trying to get property of non-object
+2013-11-05T20:41:30+07:00 NOTICE (5): Page not found
+2013-11-05T20:41:30+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:41:30+07:00 NOTICE (5): Page not found
+2013-11-05T20:41:30+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:44:47+07:00 NOTICE (5): Page not found
+2013-11-05T20:44:47+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:44:47+07:00 NOTICE (5): Page not found
+2013-11-05T20:44:47+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:44:47+07:00 NOTICE (5): Page not found
+2013-11-05T20:44:47+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:49:26+07:00 NOTICE (5): Page not found
+2013-11-05T20:49:26+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:49:26+07:00 NOTICE (5): Page not found
+2013-11-05T20:49:26+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:55:51+07:00 NOTICE (5): Page not found
+2013-11-05T20:55:51+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:55:51+07:00 NOTICE (5): Page not found
+2013-11-05T20:55:51+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:55:51+07:00 NOTICE (5): Page not found
+2013-11-05T20:55:51+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:55:52+07:00 NOTICE (5): Page not found
+2013-11-05T20:55:52+07:00 NOTICE (5): Request Parameters
+2013-11-05T20:55:58+07:00 NOTICE (5): Page not found
+2013-11-05T20:55:58+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:12:39+07:00 NOTICE (5): Page not found
+2013-11-05T21:12:39+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:12:39+07:00 NOTICE (5): Page not found
+2013-11-05T21:12:39+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:12:39+07:00 NOTICE (5): Page not found
+2013-11-05T21:12:39+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:27:02+07:00 WARN (4): Exception caught by form: Plugin by name 'Twitter_Bootstrap_Form_Decorator_Addon' was not found in the registry; used paths:
+Twitter_Bootstrap_Form_Decorator_: Twitter/Bootstrap/Form/Decorator/
+Zend_Form_Decorator_: Zend/Form/Decorator/
+Stack Trace:
+#0 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element.php(1827): Zend_Loader_PluginLoader->load('Twitter_Bootstr...')
+#1 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element.php(2207): Zend_Form_Element->_getDecorator('Twitter_Bootstr...', Array)
+#2 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element.php(1980): Zend_Form_Element->_loadDecorator(Array, 'Twitter_Bootstr...')
+#3 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element\File.php(863): Zend_Form_Element->getDecorators()
+#4 C:\www\litera\library\Twitter\Bootstrap\Form\Decorator\FormElements.php(84): Zend_Form_Element_File->render()
+#5 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form.php(2933): Twitter_Bootstrap_Form_Decorator_FormElements->render('')
+#6 C:\www\litera\library\Twitter\Bootstrap\Form.php(191): Zend_Form->render(NULL)
+#7 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form.php(2949): Twitter_Bootstrap_Form->render()
+#8 C:\www\litera\application\views\scripts\news\edit.phtml(26): Zend_Form->__toString()
+#9 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\View.php(108): include('C:\www\litera\a...')
+#10 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\View\Abstract.php(888): Zend_View->_run('C:/www/litera/a...')
+#11 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\Helper\ViewRenderer.php(900): Zend_View_Abstract->render('news/edit.phtml')
+#12 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\Helper\ViewRenderer.php(921): Zend_Controller_Action_Helper_ViewRenderer->renderScript('news/edit.phtml', NULL)
+#13 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\Helper\ViewRenderer.php(960): Zend_Controller_Action_Helper_ViewRenderer->render()
+#14 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#15 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action.php(527): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#16 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('editAction')
+#17 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#18 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#19 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#20 C:\www\litera\public\index.php(36): Zend_Application->run()
+#21 {main}
+2013-11-05T21:27:34+07:00 WARN (4): Exception caught by form: Plugin by name 'Twitter_Bootstrap_Form_Decorator_Addon' was not found in the registry; used paths:
+Twitter_Bootstrap_Form_Decorator_: Twitter/Bootstrap/Form/Decorator/
+Zend_Form_Decorator_: Zend/Form/Decorator/
+Stack Trace:
+#0 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element.php(1827): Zend_Loader_PluginLoader->load('Twitter_Bootstr...')
+#1 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element.php(2207): Zend_Form_Element->_getDecorator('Twitter_Bootstr...', Array)
+#2 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element.php(1980): Zend_Form_Element->_loadDecorator(Array, 'Twitter_Bootstr...')
+#3 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form\Element\File.php(863): Zend_Form_Element->getDecorators()
+#4 C:\www\litera\library\Twitter\Bootstrap\Form\Decorator\FormElements.php(84): Zend_Form_Element_File->render()
+#5 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form.php(2933): Twitter_Bootstrap_Form_Decorator_FormElements->render('')
+#6 C:\www\litera\library\Twitter\Bootstrap\Form.php(191): Zend_Form->render(NULL)
+#7 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Form.php(2949): Twitter_Bootstrap_Form->render()
+#8 C:\www\litera\application\views\scripts\news\edit.phtml(26): Zend_Form->__toString()
+#9 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\View.php(108): include('C:\www\litera\a...')
+#10 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\View\Abstract.php(888): Zend_View->_run('C:/www/litera/a...')
+#11 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\Helper\ViewRenderer.php(900): Zend_View_Abstract->render('news/edit.phtml')
+#12 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\Helper\ViewRenderer.php(921): Zend_Controller_Action_Helper_ViewRenderer->renderScript('news/edit.phtml', NULL)
+#13 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\Helper\ViewRenderer.php(960): Zend_Controller_Action_Helper_ViewRenderer->render()
+#14 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action\HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#15 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Action.php(527): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#16 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('editAction')
+#17 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#18 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Application\Bootstrap\Bootstrap.php(97): Zend_Controller_Front->dispatch()
+#19 C:\Zend\ZendServer\data\libraries\Zend_Framework_1\1.12.3\library\Zend\Application.php(366): Zend_Application_Bootstrap_Bootstrap->run()
+#20 C:\www\litera\public\index.php(36): Zend_Application->run()
+#21 {main}
+2013-11-05T21:27:35+07:00 NOTICE (5): Page not found
+2013-11-05T21:27:35+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:27:35+07:00 NOTICE (5): Page not found
+2013-11-05T21:27:35+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:27:35+07:00 NOTICE (5): Page not found
+2013-11-05T21:27:35+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:27:57+07:00 NOTICE (5): Page not found
+2013-11-05T21:27:57+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:27:57+07:00 NOTICE (5): Page not found
+2013-11-05T21:27:57+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:29:42+07:00 NOTICE (5): Page not found
+2013-11-05T21:29:42+07:00 NOTICE (5): Request Parameters
+2013-11-05T21:29:42+07:00 NOTICE (5): Page not found
+2013-11-05T21:29:42+07:00 NOTICE (5): Request Parameters

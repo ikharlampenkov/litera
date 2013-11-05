@@ -62,6 +62,13 @@ class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
             )
         );
 
+        //$this->getElement('file')->addDecorator()
+        //print_r($this->getElement('file')->getDecorator('Addon')->setOption('content', 'asfasfasfa'));
+
+        //print_r($this->getElement('file')->addDecorator('HtmlTag', array('tag'=>'img', 'placement'=>'prepend', 'src'=>'/images/_main.jpg')));
+
+        //if ($this->news->file->getName()) { <a href="/files<?php echo $this->escape($this->news->file->getSubPath());/<?php echo $this->escape($this->news->file->getName()); " target="_blank">загрузить</a> }
+
         $this->addElement(
             'textarea', 'short_text',
             array(

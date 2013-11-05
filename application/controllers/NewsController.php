@@ -67,20 +67,20 @@ class NewsController extends Zend_Controller_Action
         $form->submit->setLabel('Добавить');
 
         $form->setCategoryList(SM_Module_NewsCategory::getAllInstance());
-
-        //$form->setDefault('category', $this->_category->getId());
+        if ($this->_category != null) {
+            $form->setDefault('category', $this->_category->getId());
+        }
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->_request->getPost())) {
-                $data = $this->getRequest()->getParam('data');
                 $oNews->setLink($this->_link);
                 $oNews->setTitle($form->getValue('title'));
                 $oNews->setDatePublic($form->getValue('date'));
                 $oNews->setShortText($form->getValue('short_text'));
                 $oNews->setFullText($form->getValue('full_text'));
 
-                if ($form->getValue('category_id') != 'null') {
-                    $oNews->setCategory(SM_Module_NewsCategory::getInstanceById($form->getValue('category_id')));
+                if ($form->getValue('category') != 'null') {
+                    $oNews->setCategory(SM_Module_NewsCategory::getInstanceById($form->getValue('category')));
                 } else {
                     $oNews->setCategory(null);
                 }
@@ -106,34 +106,50 @@ class NewsController extends Zend_Controller_Action
     {
         $oNews = SM_Module_News::getInstanceById($this->getRequest()->getParam('id'));
 
+        $form = new Application_Form_News_News();
+        $helperUrl = new Zend_View_Helper_Url();
+        $form->setAction($helperUrl->url(array('controller' => 'news', 'action' => 'edit', 'id' => $oNews->getId())));
+        $form->getElement('cancel')->setHref('/news/index/link/' . $this->_link->getLink());
+        $form->submit->setLabel('Сохранить');
+
+        $form->setDefault('title', $oNews->getTitle());
+        $form->setDefault('date', $oNews->getDatePublic());
+        $form->setDefault('short_text', $oNews->getShortText());
+        $form->setDefault('full_text', $oNews->getFullText());
+
+        $form->setCategoryList(SM_Module_NewsCategory::getAllInstance());
+        //$form->setDefault('category', $oNews->getCategory()->getId());
+
+
         if ($this->getRequest()->isPost()) {
-            $data = $this->getRequest()->getParam('data');
-            $oNews->setTitle($data['title']);
-            $oNews->setDatePublic($data['date']);
-            $oNews->setShortText($data['short_text']);
-            $oNews->setFullText($data['full_text']);
+            if ($form->isValid($this->_request->getPost())) {
+                $oNews->setTitle($form->getValue('title'));
+                $oNews->setDatePublic($form->getValue('date'));
+                $oNews->setShortText($form->getValue('short_text'));
+                $oNews->setFullText($form->getValue('full_text'));
 
-            if ($data['category_id'] != 'null') {
-                $oNews->setCategory(SM_Module_NewsCategory::getInstanceById($data['category_id']));
-            } else {
-                $oNews->setCategory(null);
-            }
-
-            try {
-                $oNews->updateToDB();
-                if ($this->_category != null) {
-                    $this->_redirect('/news/index/link/' . $this->_link->getLink() . '/categoryId/' . $this->_category->getId());
+                if ($form->getValue('category') != 'null') {
+                    $oNews->setCategory(SM_Module_NewsCategory::getInstanceById($form->getValue('category')));
                 } else {
-                    $this->_redirect('/news/index/link/' . $this->_link->getLink());
+                    $oNews->setCategory(null);
                 }
-            } catch (Exception $e) {
-                $this->view->assign('exception_msg', $e->getMessage());
+                try {
+                    $oNews->updateToDB();
+                    if ($this->_category != null) {
+                        $this->redirect('/news/index/link/' . $this->_link->getLink() . '/categoryId/' . $this->_category->getId());
+                    } else {
+                        $this->redirect('/news/index/link/' . $this->_link->getLink());
+                    }
+                } catch (Exception $e) {
+                    $this->view->assign('exception_msg', $e->getMessage());
+                }
             }
 
         }
 
-        $this->view->assign('news', $oNews);
-        $this->view->assign('categoryList', SM_Module_NewsCategory::getAllInstance());
+        $this->view->form = $form;
+        //$this->view->assign('news', $oNews);
+        //$this->view->assign('categoryList', SM_Module_NewsCategory::getAllInstance());
     }
 
     public function deleteAction()
