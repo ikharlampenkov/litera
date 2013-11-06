@@ -62,12 +62,7 @@ class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
             )
         );
 
-        //$this->getElement('file')->addDecorator()
-        //print_r($this->getElement('file')->getDecorator('Addon')->setOption('content', 'asfasfasfa'));
-
-        //print_r($this->getElement('file')->addDecorator('HtmlTag', array('tag'=>'img', 'placement'=>'prepend', 'src'=>'/images/_main.jpg')));
-
-        //if ($this->news->file->getName()) { <a href="/files<?php echo $this->escape($this->news->file->getSubPath());/<?php echo $this->escape($this->news->file->getName()); " target="_blank">загрузить</a> }
+        $this->getElement('file')->getDecorator('Description')->setOptions(array('escape' => false, 'placement' => Zend_Form_Decorator_Abstract::PREPEND));
 
         $this->addElement(
             'textarea', 'short_text',
@@ -132,6 +127,11 @@ class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
                 $element->addMultiOption($category->getId(), $category->getTitle());
             }
         }
+    }
+
+    public function setImage($fileName, $title = '')
+    {
+        $this->getElement('file')->setDescription('<img src="/files' . $fileName . '" alt="' . $title . '" />');
     }
 
 } 

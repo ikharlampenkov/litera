@@ -117,9 +117,11 @@ class NewsController extends Zend_Controller_Action
         $form->setDefault('short_text', $oNews->getShortText());
         $form->setDefault('full_text', $oNews->getFullText());
 
-        $form->setCategoryList(SM_Module_NewsCategory::getAllInstance());
-        //$form->setDefault('category', $oNews->getCategory()->getId());
+        if ($oNews->getFile()->getName() != '') {
+            $form->setImage($oNews->getFile()->getSubPath() . '/' . $oNews->getFile()->getName(), $oNews->getTitle());
+        }
 
+        $form->setCategoryList(SM_Module_NewsCategory::getAllInstance());
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->_request->getPost())) {

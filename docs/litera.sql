@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.7
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 03 2013 г., 22:38
+-- Время создания: Ноя 06 2013 г., 23:34
 -- Версия сервера: 5.5.23-log
 -- Версия PHP: 5.3.26
 
@@ -98,8 +98,8 @@ CREATE TABLE IF NOT EXISTS `menu_item` (
 --
 
 INSERT INTO `menu_item` (`id`, `title`, `link`, `parent_id`, `handler_id`, `is_visible`, `sort_order`) VALUES
-(1, 'Контакты', 'kontaktyi', NULL, 1, 1, 1),
-(2, 'Новости', 'novosti', NULL, 3, 0, 1);
+(1, 'Контакты', 'kontaktyi', NULL, 1, 1, 2),
+(2, 'Новости', 'novosti', NULL, 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,16 @@ CREATE TABLE IF NOT EXISTS `news` (
   `date_create` date NOT NULL,
   `category_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `news`
+--
+
+INSERT INTO `news` (`id`, `link_id`, `date_public`, `title`, `file`, `short_text`, `full_text`, `date_create`, `category_id`) VALUES
+(1, 2, '2013-11-04 00:00:00', 'Проверка', 'img_04-11-2013-00-06-22.gif', 'вррвр кркурукрукр укркурукрукркурукру', '', '2013-11-04', 3),
+(2, 2, '2013-11-04 00:00:00', 'Цвет', 'img_06-11-2013-23-33-24.gif', 'еновн оне', '<p>fgnfgnfg nfgngfnfnfnf</p>', '2013-11-04', 3),
+(3, 2, '2013-11-04 00:00:00', 'Еще раз', NULL, 'аптка керекрк', '<p><span style="color:#FF8C00"><strong>ке керекрекркерке</strong></span></p>', '2013-11-04', 3);
 
 -- --------------------------------------------------------
 
@@ -395,7 +404,7 @@ CREATE TABLE IF NOT EXISTS `tm_user_resource` (
   `rtitle` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=426 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=433 ;
 
 --
 -- Дамп данных таблицы `tm_user_resource`
@@ -442,7 +451,14 @@ INSERT INTO `tm_user_resource` (`id`, `title`, `rtitle`) VALUES
 (422, 'contentpage/edit', 'contentpage/edit'),
 (423, 'contentpage/delete', 'contentpage/delete'),
 (424, 'menu/edit', 'menu/edit'),
-(425, 'Contentpage/view', 'Contentpage/view');
+(425, 'Contentpage/view', 'Contentpage/view'),
+(426, 'News/index', 'News/index'),
+(427, 'news/add', 'news/add'),
+(428, 'news/edit', 'news/edit'),
+(429, 'js/jquery.min.map', 'js/jquery.min.map'),
+(430, 'favicon.ico/index', 'favicon.ico/index'),
+(431, 'News/view', 'News/view'),
+(432, 'images/_main.jpg', 'images/_main.jpg');
 
 -- --------------------------------------------------------
 
