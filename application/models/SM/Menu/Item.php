@@ -230,6 +230,8 @@ class SM_Menu_Item
                 $tempURL .= $this->_handler->getController() . '/index/link/' . $this->_link . '/';
             } elseif ($this->_handler->getController() == 'GuestBook') {
                 $tempURL .= $this->_handler->getController() . '/index/link/' . $this->_link . '/';
+            } elseif ($this->_handler->getController() == 'PaymentPoint') {
+                $tempURL .= $this->_handler->getController() . '/index/link/' . $this->_link . '/';
             } else {
                 $tempURL .= $this->getFullUrl() . '/';
             }
@@ -383,6 +385,23 @@ class SM_Menu_Item
                 array('controller' => $this->_handler->getController(), 'action' => 'view-question', 'link' => $this->_link), array('id' => '[\w\-]+', 'parent' => '[\w\-]+')
             );
             $router->addRoute($this->getFullUrl('-') . '-view-question', $route);
+        } elseif ($this->_handler->getController() == 'PaymentPoint') {
+            //PaymentPoint
+            $defaults['controller'] = $this->_handler->getController();
+            $defaults['action'] = 'view';
+            $defaults['link'] = $this->_link;
+
+            $route = new Zend_Controller_Router_Route(
+                '/' . $this->getFullUrl() . '/',
+                $defaults, $requirements
+            );
+            $router->addRoute($this->getFullUrl('-'), $route);
+
+            $route = new Zend_Controller_Router_Route(
+                '/' . $this->getFullUrl() . '/viewpoint/:id/',
+                array('controller' => $this->_handler->getController(), 'action' => 'viewpoint', 'link' => $this->_link), array('id' => '[\d]+')
+            );
+            $router->addRoute($this->getFullUrl('-') . '-viewnews', $route);
         } else {
 
         }

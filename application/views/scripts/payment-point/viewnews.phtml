@@ -1,0 +1,56 @@
+<div class="content">
+    <div class="full">
+        <p class="f_date"><?php echo $this->escape(date('d.m.Y', strtotime($this->news->datePublic))); ?></p>
+
+        <div class="f_content">
+            <?php if ($this->news->file->getName()): ?>
+                <div class="f_c_image">
+                    <img src="/files<?php echo $this->escape($this->news->file->getSubPath()); ?>/<?php echo $this->escape($this->news->file->getName()); ?>" alt="<?php echo $this->escape($this->news->title); ?>"/>
+                </div>
+            <?php endif; ?>
+
+        <h1><?php echo $this->escape($this->news->title); ?></h1>
+
+        <p><?php echo stripslashes(stripcslashes($this->news->fullText)); ?></p>
+
+        <?php /* <div class="source">Источник: <a href="http://google.ru">Google.ru</a></div> */ ?>
+    </div>
+
+    <?php /*
+        <div class="comments">
+            <p><b>Комментарии:</b></p>
+
+            <div class="com_one">
+                <div class="user_name"><a href="#" title="">User 23456</a></div>
+                <div class="com_date">13.04.2013</div>
+                <div class="com_content">
+                    <p>Т.е. за отопление мы теперь будем платить одинаково, хоть летом, хоть зимой? Согласен, что в общем, за год, сумма не увеличится, но вот в летние месяцы придется платить больше, причем за услугу, которую никто не оказывает!</p>
+                </div>
+            </div>
+            <div class="com_add">
+                <p><b>Добавить комментарий:</b></p>
+
+                <form>
+                    <input type="text" id="com_add" value="Ваше имя*" onfocus="if (this.value=='Ваше имя*') this.value='' " onblur="if (this.value==''){this.value='Ваше имя*'}"/>
+                    <textarea></textarea>
+
+                    <div class="robot">
+                        <img src="img/rob.jpg" title="" alt=""/>
+
+                        <p>Впишите текст с картинки</p>
+                        <input type="text" id="rob"/>
+                    </div>
+                    <br/>
+                    <input type="button" id="com_send" value="Отправить"/>
+                </form>
+            </div>
+        </div>
+ */
+    ?>
+
+</div>
+</div>
+
+<div class="sidebar">
+    <?php echo $this->partial('news/_element/category.phtml', array('linkInfo' => $this->linkInfo, 'categoryList' => $this->categoryList)); ?>
+</div>
