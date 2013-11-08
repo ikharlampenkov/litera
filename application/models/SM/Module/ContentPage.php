@@ -235,7 +235,6 @@ class SM_Module_ContentPage
                 $bind = array('parent_page' => $parentPage);
             }
 
-            StdLib_Log::logMsg($sql);
             $result = $db->query($sql, $bind)->fetchAll();
 
 
