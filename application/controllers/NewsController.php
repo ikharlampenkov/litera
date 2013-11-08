@@ -159,7 +159,7 @@ class NewsController extends Zend_Controller_Action
         $oNews = SM_Module_News::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oNews->deleteFromDB();
-            $this->_redirect('/news/index/link/' . $this->_link->getLink());
+            $this->redirect('/news/index/link/' . $this->_link->getLink());
         } catch (Exception $e) {
             $this->view->assign('exception_msg', $e->getMessage());
         }
@@ -169,41 +169,56 @@ class NewsController extends Zend_Controller_Action
     {
         $oNewsCategory = new SM_Module_NewsCategory();
 
+        $form = new Application_Form_News_Category();
+        $helperUrl = new Zend_View_Helper_Url();
+        $form->setAction($helperUrl->url(array('controller' => 'news', 'action' => 'addcategory', 'link' => $this->_link->getLink())));
+        $form->getElement('cancel')->setHref('/news/index/link/' . $this->_link->getLink());
+        $form->submit->setLabel('Добавить');
+
         if ($this->getRequest()->isPost()) {
-            $data = $this->getRequest()->getParam('data');
-            $oNewsCategory->setTitle($data['title']);
+            if ($form->isValid($this->_request->getPost())) {
+                $oNewsCategory->setTitle($form->getValue('title'));
 
-            try {
-                $oNewsCategory->insertToDb();
-                $this->_redirect('/news/index/link/' . $this->_link->getLink());
-            } catch (Exception $e) {
-                $this->view->assign('exception_msg', $e->getMessage());
+                try {
+                    $oNewsCategory->insertToDb();
+                    $this->redirect('/news/index/link/' . $this->_link->getLink());
+                } catch (Exception $e) {
+                    $this->view->assign('exception_msg', $e->getMessage());
+                }
             }
-
         }
 
-        $this->view->assign('newsCategory', $oNewsCategory);
-
+        $this->view->form = $form;
+        //$this->view->assign('newsCategory', $oNewsCategory);
     }
 
     public function editcategoryAction()
     {
         $oNewsCategory = SM_Module_NewsCategory::getInstanceById($this->getRequest()->getParam('categoryId'));
 
+        $form = new Application_Form_News_Category();
+        $helperUrl = new Zend_View_Helper_Url();
+        $form->setAction($helperUrl->url(array('controller' => 'news', 'action' => 'editcategory', 'categoryId' => $oNewsCategory->getId(), 'link' => $this->_link->getLink())));
+        $form->getElement('cancel')->setHref('/news/index/link/' . $this->_link->getLink());
+        $form->submit->setLabel('Сохранить');
+
+        $form->setDefault('title', $oNewsCategory->getTitle());
+
         if ($this->getRequest()->isPost()) {
-            $data = $this->getRequest()->getParam('data');
-            $oNewsCategory->setTitle($data['title']);
+            if ($form->isValid($this->_request->getPost())) {
+                $oNewsCategory->setTitle($form->getValue('title'));
 
-            try {
-                $oNewsCategory->updateToDB();
-                $this->_redirect('/news/index/link/' . $this->_link->getLink());
-            } catch (Exception $e) {
-                $this->view->assign('exception_msg', $e->getMessage());
+                try {
+                    $oNewsCategory->updateToDB();
+                    $this->redirect('/news/index/link/' . $this->_link->getLink());
+                } catch (Exception $e) {
+                    $this->view->assign('exception_msg', $e->getMessage());
+                }
             }
-
         }
 
-        $this->view->assign('newsCategory', $oNewsCategory);
+        $this->view->form = $form;
+        //$this->view->assign('newsCategory', $oNewsCategory);
     }
 
     public function deletecategoryAction()
@@ -211,7 +226,7 @@ class NewsController extends Zend_Controller_Action
         $oNewsCategory = SM_Module_NewsCategory::getInstanceById($this->getRequest()->getParam('categoryId'));
         try {
             $oNewsCategory->deleteFromDB();
-            $this->_redirect('/news/index/link/' . $this->_link->getLink());
+            $this->redirect('/news/index/link/' . $this->_link->getLink());
         } catch (Exception $e) {
             $this->view->assign('exception_msg', $e->getMessage());
         }
