@@ -164,6 +164,13 @@ ul.menu li:hover ul li:first-child a:hover {
     padding-top: 20px;
 }
 
+.sidebar {
+    width: 280px;
+    float: left;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
 .content_main {
     width: 1000px;
     min-height: 500px;
@@ -259,6 +266,18 @@ a.ttovar {
     color: #696969;
     font-family: Tahoma;
     font-size: 14px;
+}
+
+.nav {
+    padding: 0 15px;
+    position: relative;
+    color: #696969;
+    font-family: Tahoma;
+    font-size: 14px;
+}
+
+.nav li {
+    position: relative;
 }
 
 .edit {
