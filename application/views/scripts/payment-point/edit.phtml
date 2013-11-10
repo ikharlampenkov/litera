@@ -3,7 +3,7 @@
 
 <script>
     $(document).ready(function () {
-        CKEDITOR.replace('news[full_text]', {
+        CKEDITOR.replace('point[full_text]', {
             filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
             filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?Type=Images',
             filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?Type=Flash',
@@ -14,7 +14,7 @@
     });
 </script>
 
-<legend>Редактировать новость</legend>
+<legend>Редактировать точку приема платежей</legend>
 
 <?php if (isset($this->exception_msg)): ?>
     <div class="alert alert-error">

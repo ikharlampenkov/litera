@@ -1,6 +1,6 @@
 <div class="content">
 
-    <legend><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Новости<?php endif; ?></legend>
+    <legend><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Точки приема платежей<?php endif; ?></legend>
 
     <?php if (isset($this->exception_msg)): ?>
         <div class="alert alert-error">
@@ -9,54 +9,30 @@
         </div>
     <?php endif; ?>
 
-    <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'add', 'link' => $this->escape($this->link))) ?>"><i class="icon-plus"></i>Добавить новость</a><br/><br/>
+    <a href="<?php echo $this->url(array('controller' => 'payment-point', 'action' => 'add', 'link' => $this->escape($this->link))) ?>"><i class="icon-plus"></i>Добавить точку</a><br /><br />
 
 
     <table class="table table-bordered">
         <tr>
-            <th>Дата</th>
+            <th>Фото</th>
             <th>Название</th>
-            <th>Анонс</th>
+            <th>Адрес</th>
             <th>Действия</th>
         </tr>
 
-        <?php if ($this->newsList !== false): ?>
-            <?php foreach ($this->newsList as $item): ?>
+        <?php if ($this->pointList !== false): ?>
+            <?php foreach ($this->pointList as $item): ?>
                 <tr>
-                    <td><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?></td>
+                    <td><img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>" title="<?php echo $this->escape($item->title); ?>" alt="<?php echo $this->escape($item->title); ?>"/></td>
                     <td><?php echo $this->escape($item->title); ?></td>
-                    <td><?php echo $this->escape($item->shortText); ?></td>
+                    <td><?php echo $this->escape($item->address); ?></td>
                     <td class="tedit">
-                        <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'edit', 'id' => $item->id, 'link' => $this->escape($this->link))); ?>"><i class="icon-pencil"></a>
-                        <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'delete', 'id' => $item->id, 'link' => $this->escape($this->link))); ?>" onclick="return confirmDelete('<?php echo $this->escape($item->title); ?>');"><i class="icon-remove"></i></a>
+                        <a href="<?php echo $this->url(array('controller' => 'payment-point', 'action' => 'edit', 'id' => $item->id, 'link' => $this->escape($this->link))); ?>"><i class="icon-pencil"></a>
+                        <a href="<?php echo $this->url(array('controller' => 'payment-point', 'action' => 'delete', 'id' => $item->id, 'link' => $this->escape($this->link))); ?>" onclick="return confirmDelete('<?php echo $this->escape($item->title); ?>');"><i class="icon-remove"></i></a>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
     </table>
 
     <div class="clear"></div>
-</div>
-
-<div class="sidebar">
-
-    <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'addcategory', 'link' => $this->escape($this->link))) ?>"><i class="icon-plus"></i> Добавить категорию</a><br/><br/>
-
-    <ul class="nav nav-list secand_menu">
-        <li>
-            <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'index', 'link' => $this->escape($this->link), 'categoryId' => '')) ?>">КАТЕГОРИИ</a>
-            <ul>
-                <?php if ($this->categoryList !== false): ?>
-                    <?php foreach ($this->categoryList as $item): ?>
-                        <li>
-                            <a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'index', 'categoryId' => $item->id, 'link' => $this->escape($this->link))) ?>"><?php echo $this->escape($item->title); ?></a>
-                            <span class="edit"><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'editcategory', 'categoryId' => $item->id, 'link' => $this->escape($this->link))) ?>"><i class="icon-pencil"></i></a></span>
-                            <span class="del"><a href="<?php echo $this->url(array('controller' => 'news', 'action' => 'deletecategory', 'categoryId' => $item->id, 'link' => $this->escape($this->link))) ?>" onclick="return confirmDelete('<?php echo $this->escape($item->title); ?>');"><i class="icon-remove"></i></a></span>
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </ul>
-
-        </li>
-    </ul>
-
 </div>

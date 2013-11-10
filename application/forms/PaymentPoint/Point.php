@@ -6,7 +6,7 @@
  * Time: 22:56
  */
 
-class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
+class Application_Form_PaymentPoint_Point extends Twitter_Bootstrap_Form_Horizontal
 {
     public function init()
     {
@@ -15,41 +15,19 @@ class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
         $this->setEnctype(Zend_Form::ENCTYPE_MULTIPART);
 
         $this->setIsArray(true);
-        $this->setElementsBelongTo('news');
+        $this->setElementsBelongTo('point');
 
         $this->addElement(
             'text', 'title',
             array(
                  'label'       => 'Название',
-                 'placeholder' => 'Заголовок новости',
+                 'placeholder' => 'Название точки приема платежей',
                  'required'    => true,
                  'maxlength'   => '255',
                  'validators'  => array(
                      array('StringLength', true, array(0, 255))
                  ),
                  'filters'     => array('StringTrim', 'StripTags')
-            )
-        );
-
-        $this->addElement(
-            'text', 'date',
-            array(
-                 'label'       => 'Дата публикации',
-                 'placeholder' => 'Дата публикации',
-                 'required'    => true,
-                 'maxlength'   => '20',
-                 'class'       => 'datepicker',
-                 'validators'  => array(
-                     array('StringLength', true, array(0, 255))
-                 ),
-                 'filters'     => array('StringTrim', 'StripTags')
-            )
-        );
-
-        $this->addElement(
-            'select', 'category',
-            array('label'    => 'Категория',
-                  'required' => true
             )
         );
 
@@ -65,13 +43,13 @@ class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
         $this->getElement('file')->getDecorator('Description')->setOptions(array('escape' => false, 'placement' => Zend_Form_Decorator_Abstract::PREPEND));
 
         $this->addElement(
-            'textarea', 'short_text',
+            'text', 'address',
             array(
-                 'label'       => 'Анонс',
-                 'placeholder' => 'Анонс',
+                 'label'       => 'Адрес',
+                 'placeholder' => 'Адрес точки платежей',
                  'required'    => true,
                  'validators'  => array(
-                     array('StringLength', true, array(0, 5000))
+                     array('StringLength', true, array(0, 255))
                  ),
                  'filters'     => array('StringTrim', 'StripTags')
             )
@@ -80,8 +58,8 @@ class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
         $this->addElement(
             'textarea', 'full_text',
             array(
-                 'label'       => 'Полный текст',
-                 'placeholder' => 'Полный текст новости',
+                 'label'       => 'Описание',
+                 'placeholder' => 'Описание точки приема платежей',
                  'required'    => false,
                  'validators'  => array(
                      array('StringLength', true, array(0, 500000))
@@ -116,17 +94,6 @@ class Application_Form_News_News extends Twitter_Bootstrap_Form_Horizontal
                  'decorators'                   => array('Actions')
             )
         );
-    }
-
-    public function setCategoryList($categoryList)
-    {
-        if (!empty($categoryList) && $categoryList != false) {
-            $element = $this->getElement('category');
-
-            foreach ($categoryList as $category) {
-                $element->addMultiOption($category->getId(), $category->getTitle());
-            }
-        }
     }
 
     public function setImage($fileName, $title = '')
