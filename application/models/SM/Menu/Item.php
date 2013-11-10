@@ -401,7 +401,7 @@ class SM_Menu_Item
                 '/' . $this->getFullUrl() . '/viewpoint/:id/',
                 array('controller' => $this->_handler->getController(), 'action' => 'viewpoint', 'link' => $this->_link), array('id' => '[\d]+')
             );
-            $router->addRoute($this->getFullUrl('-') . '-viewnews', $route);
+            $router->addRoute($this->getFullUrl('-') . '-viewpoint', $route);
         } else {
 
         }
