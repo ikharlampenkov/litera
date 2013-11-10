@@ -236,3 +236,16 @@ Stack Trace:
 2013-11-06T23:30:35+07:00 NOTICE (5): Request Parameters
 2013-11-06T23:32:21+07:00 NOTICE (5): Page not found
 2013-11-06T23:32:21+07:00 NOTICE (5): Request Parameters
+2013-11-10T19:23:09+07:00 NOTICE (5): Page not found
+2013-11-10T19:23:09+07:00 NOTICE (5): Request Parameters
+2013-11-10T19:27:00+07:00 NOTICE (5): Undefined property: PaymentPointController::$_category
+2013-11-10T19:27:00+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-10T19:27:00+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-10T19:43:10+07:00 CRIT (2): Application error
+2013-11-10T19:43:10+07:00 CRIT (2): Request Parameters
+2013-11-10T19:54:52+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-10T19:54:52+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-10T20:01:49+07:00 CRIT (2): Application error
+2013-11-10T20:01:49+07:00 CRIT (2): Request Parameters
+2013-11-10T20:03:14+07:00 CRIT (2): Application error
+2013-11-10T20:03:14+07:00 CRIT (2): Request Parameters
