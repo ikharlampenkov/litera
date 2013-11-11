@@ -1,44 +1,30 @@
 <div class="content">
     <div class="news">
         <div class="n_title">
-            <a href="#" title="<?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Новости<?php endif; ?>"><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Новости<?php endif; ?></a>
+            <a href="#" title="<?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Точки приема платежей<?php endif; ?>"><?php if (is_object($this->linkInfo)): ?><?php echo $this->escape($this->linkInfo->title); ?><?php else: ?>Точки приема платежей<?php endif; ?></a>
         </div>
 
-        <?php if ($this->newsList !== false): ?>
-            <?php foreach ($this->newsList as $item): ?>
+        <?php if ($this->pointList !== false): ?>
+            <?php foreach ($this->pointList as $item): ?>
                 <div class="one_item">
                     <div class="item_image">
                         <?php if ($item->file->getName()): ?>
-                            <a href="<?php if ($this->category != null): ?>
-                                         <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id, 'categoryId' => $this->category->id), $this->linkInfo->getFullUrl('-') . '-viewnews-category'); ?>
-                                     <?php else: ?>
-                                         <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $this->linkInfo->getFullUrl('-') . '-viewnews'); ?>
-                                     <?php endif; ?>
-                                     " title="<?php echo $this->escape($item->title); ?>">
-                                <img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>" title="<?php echo $this->escape($item->title); ?>" alt="<?php echo $this->escape($item->title); ?>"/>
+                            <a href="<?php echo $this->url(array('controller' => 'payment-point', 'action' => 'viewpoint', 'id' => $item->id), $this->linkInfo->getFullUrl('-') . '-viewpoint'); ?>" title="<?php echo $this->escape($item->title); ?>">
+                                <img src="/files<?php echo $this->escape($item->file->getSubPath()); ?>/<?php echo $this->escape($item->file->getPreview()); ?>" title="<?php echo $this->escape($item->title); ?>" alt="<?php echo $this->escape($item->title); ?>" />
                             </a>
                         <?php endif; ?>
                     </div>
 
                     <div class="item_right">
                         <p class="item_title">
-                            <a href="
-                                <?php if ($this->category != null): ?>
-                                    <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id, 'categoryId' => $this->category->id), $this->linkInfo->getFullUrl('-') . '-viewnews-category') ?>
-                                <?php else: ?>
-                                    <?php echo $this->url(array('controller' => 'news', 'action' => 'viewnews', 'id' => $item->id), $this->linkInfo->getFullUrl('-') . '-viewnews') ?>
-                                <?php endif; ?>
-                           " title=""><?php echo $this->escape(date('d.m.Y', strtotime($item->datePublic))); ?> <?php echo $this->escape($item->title); ?></a>
+                            <a href="<?php echo $this->url(array('controller' => 'payment-point', 'action' => 'viewpoint', 'id' => $item->id), $this->linkInfo->getFullUrl('-') . '-viewpoint') ?>" title=""><?php echo $this->escape($item->title); ?></a>
                         </p>
 
-                        <p class="item_shortcontent"><?php echo $this->escape($item->shortText); ?></p>
+                        <p class="item_shortcontent"><?php echo $this->escape($item->address); ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
 
     </div>
-</div>
-<div class="sidebar">
-    <?php echo $this->partial('news/_element/category.phtml', array('linkInfo' => $this->linkInfo, 'categoryList' => $this->categoryList)); ?>
 </div>

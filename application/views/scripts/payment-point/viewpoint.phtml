@@ -1,0 +1,19 @@
+<div class="content">
+    <div class="full">
+
+        <div class="f_content">
+            <?php if ($this->point->file->getName()): ?>
+                <div class="f_c_image">
+                    <img src="/files<?php echo $this->escape($this->point->file->getSubPath()); ?>/<?php echo $this->escape($this->point->file->getName()); ?>" alt="<?php echo $this->escape($this->point->title); ?>" />
+                </div>
+            <?php endif; ?>
+
+            <h1><?php echo $this->escape($this->point->title); ?></h1>
+
+            <p><?php echo stripslashes(stripcslashes($this->point->address)); ?></p>
+
+            <p><?php echo stripslashes(stripcslashes($this->point->fullText)); ?></p>
+
+        </div>
+    </div>
+</div>
